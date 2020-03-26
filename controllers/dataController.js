@@ -1,27 +1,9 @@
 const Data = require("../models/Statistics");
 const ErrorRes = require("../Utils/errorRes");
 const asyncHandler = require("../middleware/async");
-
 // Gets all data for all countries
 exports.getAll = asyncHandler(async (req, res, next) => {
-  const data = await Data.find();
-
-  if (!data.length > 0) {
-    return next(new ErrorRes("Data failed to fetch", 500));
-  }
-  // Filter bad data
-  const filteredData = data.filter(
-    obj =>
-      obj.country !== "Montserrat" &&
-      obj.country !== "Total:" &&
-      obj.country !== "Diamond Princess"
-  );
-  res.status(200).json({
-    success: true,
-    count: filteredData.length,
-    stats: getStats(data),
-    country: filteredData
-  });
+  res.status(200).json(res.advancedSearch);
 });
 
 // Gets data for a specific country
