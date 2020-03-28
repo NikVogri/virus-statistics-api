@@ -28,7 +28,7 @@ const advanceSearch = model => async (req, res, next) => {
   // Pagination - Page 1 is default if not specified
   const page = parseInt(req.query.page, 10) || 1;
   // how many to display per page
-  const limit = parseInt(req.query.limit, 10) || 100;
+  const limit = parseInt(req.query.limit, 10) || 25;
   // where to start
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
@@ -38,7 +38,9 @@ const advanceSearch = model => async (req, res, next) => {
 
   const results = await query;
   // Pagination result
-  const pagination = {};
+  const pagination = {
+    pages: Math.ceil(total / limit)
+  };
   if (endIndex < total) {
     pagination.next = {
       page: page + 1,
