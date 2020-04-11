@@ -1,42 +1,42 @@
 const mongoose = require("mongoose");
 
-const dataSchema = new mongoose.Schema({
+const continentSchema = new mongoose.Schema({
   country: {
     required: true,
-    type: String
+    type: String,
   },
   TotalCases: {
     required: true,
-    type: String
+    type: String,
   },
   NewCases: {
     required: false,
-    type: String
+    type: String,
   },
   TotalDeaths: {
     required: false,
-    type: String
+    type: String,
   },
   NewDeaths: {
     required: false,
-    type: String
+    type: String,
   },
   TotalRecovered: {
     required: false,
-    type: String
+    type: String,
   },
   ActiveCases: {
     required: true,
-    type: String
+    type: String,
   },
   critical: {
     required: false,
-    type: String
+    type: String,
   },
   updatedAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model("Data", dataSchema);
+module.exports = mongoose.model("Continent", continentSchema);
