@@ -13,7 +13,10 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: "https://coronastatistics.netlify.app",
+  optionsSuccessStatus: 200 
+}));
 
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
