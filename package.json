@@ -1,22 +1,21 @@
 {
-  "name": "virus-statistics-api",
-  "version": "1.0.0",
-  "description": "check whats currently going on around the world with this Api you can find statistics on each country",
+  "name": "virus-statistics-api-updated",
+  "version": "2.0.0",
+  "description": "",
   "main": "app.js",
-  "scripts": {
-    "start": "NODE_ENV=production node app.js",
-    "dev": "env NODE_ENV=development nodemon app.js"
-  },
-  "author": "Nik Vogrinec",
-  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-rate-limit": "^5.1.1",
-    "helmet": "^3.22.0",
-    "mongoose": "^5.9.6"
+    "express-rate-limit": "^5.1.3",
+    "helmet": "^3.23.3",
+    "mysql": "^2.18.1"
   },
-  "devDependencies": {
-    "dotenv": "^8.2.0"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "dev": "NODE_ENV=production nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Nick Vogrinec",
+  "license": "MIT"
 }
